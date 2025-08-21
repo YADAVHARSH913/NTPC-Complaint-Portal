@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Employer • NTPC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 min-h-screen font-sans">
+  <!-- Header -->
+  <header class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img class="h-10 w-10" src="NTPC_Logo.svg" alt="NTPC">
+      <h1 class="text-white text-xl font-bold tracking-wide">Employer Dashboard</h1>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="px-4 py-2 rounded-xl bg-red-500/20 hover:bg-red-500/30 text-white"
+        data-logout="employer">Logout</button>
+      <a href="/" class="px-4 py-2 rounded-xl bg-blue-500/20 hover:bg-blue-500/30 text-white">Home</a>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main id="empDash" class="max-w-7xl mx-auto px-6 pb-16">
+    <!-- Welcome -->
+    <section class="rounded-2xl p-6 bg-white/5 ring-1 ring-white/10 mb-6">
+      <div id="empWelcome" class="text-white text-lg font-semibold"></div>
+    </section>
+
+    <!-- Grid -->
+    <section class="grid md:grid-cols-2 gap-6">
+      <!-- Complaint Form -->
+      <form id="newComplaintForm" class="rounded-2xl p-6 bg-white/5 ring-1 ring-white/10 shadow-lg space-y-4"
+        enctype="multipart/form-data">
+        <h2 class="text-xl font-bold text-white mb-2">📌 New Complaint</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="col-span-2">
+            <label class="text-sm text-white/80">Title</label>
+            <input name="title" class="mt-1 w-full rounded-lg bg-white/10 p-3 text-white placeholder-white/40"
+              placeholder="Short issue title" />
+          </div>
+          <div class="col-span-2">
+            <label class="text-sm text-white/80">Description</label>
+            <textarea name="description" rows="3"
+              class="mt-1 w-full rounded-lg bg-white/10 p-3 text-white placeholder-white/40"
+              placeholder="Describe the issue"></textarea>
+          </div>
+          <div>
+            <label class="text-sm text-white/80">Location</label>
+            <input name="location" class="mt-1 w-full rounded-lg bg-white/10 p-3 text-white placeholder-white/40"
+              placeholder="Unit 2 / Turbine floor" />
+          </div>
+          <div>
+            <label class="text-sm text-white/80">Department</label>
+            <input name="department" class="mt-1 w-full rounded-lg bg-white/10 p-3 text-white placeholder-white/40"
+              placeholder="Electrical/Mechanical" />
+          </div>
+          <div>
+            <label class="text-sm text-white/80">Priority</label>
+            <select name="priority" class="mt-1 w-full rounded-lg bg-white/10 p-3 text-white appearance-none 
+           border border-white/20 focus:ring-2 focus:ring-blue-500">
+              <option class="bg-slate-800 text-white">Low</option>
+              <option class="bg-slate-800 text-white">Medium</option>
+              <option class="bg-slate-800 text-white">High</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="text-sm text-white/80">Image</label>
+            <input type="file" name="image" class="mt-1 w-full text-white/80" />
+          </div>
+        </div>
+        <div id="empFormMsg" class="text-sm text-green-400 font-medium"></div>
+        <button class="w-full px-4 py-3 rounded-xl bg-blue-500/20 hover:bg-blue-500/30 text-white font-semibold">Submit
+          Complaint</button>
+      </form>
+
+      <!-- Complaints Table -->
+      <div class="rounded-2xl p-6 bg-white/5 ring-1 ring-white/10 shadow-lg">
+        <h2 class="text-xl font-bold text-white mb-3">📂 My Complaints</h2>
+        <div class="overflow-auto rounded-xl ring-1 ring-white/10">
+          <table class="min-w-full text-sm">
+            <thead class="bg-white/10 text-white/70 uppercase text-xs">
+              <tr>
+                <th class="text-left px-4 py-2">Ref</th>
+                <th class="text-left px-4 py-2">Title</th>
+                <th class="text-left px-4 py-2">Status</th>
+                <th class="text-left px-4 py-2">Created</th>
+                <th class="text-left px-4 py-2">Image</th>
+              </tr>
+            </thead>
+            <tbody id="empTableBody" class="divide-y divide-white/10 text-white/90"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-7xl mx-auto px-6 py-8 text-white/60 text-sm text-center">
+    © NTPC • Designed for Employers 
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+
+</html>

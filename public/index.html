@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>NTPC • Complaint Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { 
+            brand: { DEFAULT: '#0078D7' }, /* NTPC Official Blue */
+            accent: { DEFAULT: '#22d3ee' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Background Slideshow */
+    .slideshow {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: fade 24s infinite;
+    }
+    .slideshow img:nth-child(1) { animation-delay: 0s; }
+    .slideshow img:nth-child(2) { animation-delay: 8s; }
+    .slideshow img:nth-child(3) { animation-delay: 16s; }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      30% { opacity: 1; }
+      40% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body class="relative min-h-screen flex flex-col text-white font-sans">
+
+  <!-- Background Slideshow -->
+  <div class="slideshow">
+    <img src="images/ntpc2.jpg" alt="NTPC Plant 1">
+    <img src="images/ntpc4.jpg" alt="NTPC Plant 2">
+    <img src="images/ntpc3.jpg" alt="NTPC Plant 3">
+  </div>
+
+  <!-- HEADER -->
+  <header class="max-w-7xl w-full mx-auto px-6 py-5 flex items-center justify-between bg-slate-900/70 backdrop-blur-lg shadow-lg rounded-2xl mt-4">
+    <div class="flex items-center gap-3">
+      <img class="h-12 w-12" src="NTPC_Logo.svg" alt="NTPC Logo">
+      <div class="text-xl font-bold tracking-wide">NTPC Complaint Portal</div>
+    </div>
+    <nav class="flex items-center gap-4">
+      <a href="/employer/login" class="px-5 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 transition font-medium">Employer Login</a>
+      <a href="/admin/login" class="px-5 py-2.5 rounded-lg bg-brand hover:bg-brand/90 text-white font-semibold shadow-md transition">Admin Login</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow max-w-7xl mx-auto px-6 py-20 text-center md:text-left">
+    <section class="grid md:grid-cols-2 gap-12 items-center bg-slate-900/70 backdrop-blur-lg rounded-3xl shadow-xl p-10">
+      <!-- Left -->
+      <div>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+          Report. Track. <span class="text-brand">Resolve.</span>
+        </h1>
+        <p class="mt-6 text-lg text-white/80 leading-relaxed">
+          Empowering NTPC employees and administrators with a modern, transparent, and efficient way to manage complaints.
+          Log issues, attach photos, and track progress in real time — ensuring faster resolution and accountability.
+        </p>
+        <div class="mt-8 flex gap-4 justify-center md:justify-start">
+          <a href="/employer/login" class="px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl font-medium transition">File a Complaint</a>
+          <a href="/admin/login" class="px-6 py-3 bg-brand hover:bg-brand/90 text-white font-semibold rounded-xl shadow-md transition">Admin Access</a>
+        </div>
+      </div>
+      <!-- Right -->
+      <div class="hidden md:flex justify-center">
+        <img src="images/ntpc1.jpg" alt="Portal Preview" class="rounded-2xl shadow-lg border border-white/20">
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-auto w-full text-center py-6 text-white/70 text-sm bg-slate-900/80 backdrop-blur-md">
+    © 2025 NTPC • Complaint Portal | Designed for Efficiency & Transparency
+  </footer>
+</body>
+</html>

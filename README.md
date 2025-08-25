@@ -54,8 +54,9 @@ Tpc (folder)
 
    `npm start`
  4. After this project will show this on :
-    ```sh
-    <img width="388" height="156" alt="image" src="https://github.com/user-attachments/assets/ae263664-3acd-4178-8850-d82bf578598b" />
+    Terminal.
+    <img width="427" height="182" alt="image" src="https://github.com/user-attachments/assets/af26139f-f993-4466-a43e-6bfa7abab29f" />
+
   Here press ctrl+click on the link (http://localhost:3000)
 
 Now you Can Run the Project on Local Host <3000>...

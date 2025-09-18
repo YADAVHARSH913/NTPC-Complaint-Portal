@@ -7,7 +7,10 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
 const mongoose = require('mongoose');
+<<<<<<< HEAD
 const PDFDocument = require('pdfkit');
+=======
+>>>>>>> c7c55a2978a931ab5459e6400daa26e995a55093
 
 const app = express();
 
@@ -205,6 +208,7 @@ app.patch('/api/admin/complaints/:id/status', requireAdmin, async (req, res) => 
   res.json({ success: true, complaint: c });
 });
 
+<<<<<<< HEAD
 
 // Export all complaints as PDF
 app.get('/api/admin/complaints/export', requireAdmin, async (req, res) => {
@@ -316,6 +320,9 @@ app.get('/api/admin/complaints/export', requireAdmin, async (req, res) => {
     }
 });
 // ------------ Page Routes (keep last) ------------
+=======
+// ------------ Page Routes ------------
+>>>>>>> c7c55a2978a931ab5459e6400daa26e995a55093
 app.get('*', (req, res) => {
   const map = {
     '/': 'index.html',
@@ -331,4 +338,8 @@ app.get('*', (req, res) => {
 
 // ------------ Start Server ------------
 const PORT = process.env.PORT || 3000;
+<<<<<<< HEAD
 app.listen(PORT, () => console.log(`🚀 Server running: http://localhost:${PORT}`));
+=======
+app.listen(PORT, () => console.log(`🚀 Server running: http://localhost:${PORT}`));
+>>>>>>> c7c55a2978a931ab5459e6400daa26e995a55093

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<<<<<<< HEAD
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -116,3 +117,146 @@
     <script src="/app.js"></script>
 </body>
 </html>
+=======
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard • NTPC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom dropdown styling */
+    select {
+      background-color: #1e293b;
+      /* slate-800 */
+      color: #ffffff;
+      border: 1px solid #475569;
+      /* slate-600 */
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    select option {
+      background-color: #ffffff;
+      /* White background for visibility */
+      color: #1e293b;
+      /* Dark text */
+      padding: 0.5rem;
+    }
+
+    select option:hover {
+      background-color: #e2e8f0;
+      /* Light gray hover */
+      color: #000000;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #3b82f6;
+      /* blue-500 */
+      box-shadow: 0 0 0 2px #3b82f6;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen font-sans">
+  <!-- HEADER -->
+  <header class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img class="h-10 w-10 rounded bg-white p-1 shadow-lg" src="NTPC_Logo.svg" alt="NTPC">
+      <h1 class="text-2xl font-bold text-white tracking-wide">Admin Dashboard</h1>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="px-4 py-2 rounded-xl bg-red-500 hover:bg-red-600 text-white font-medium shadow-md"
+        data-logout="admin">Logout</button>
+      <a href="/" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md">Home</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="adminDash" class="max-w-7xl mx-auto px-6 pb-16">
+    <!-- Welcome Card -->
+    <div class="rounded-2xl p-6 bg-gradient-to-br from-slate-800 to-slate-700 shadow-lg ring-1 ring-white/10">
+      <h2 id="adminWelcome" class="text-white text-xl font-bold">Welcome, Admin</h2>
+      <p class="text-white/70 text-sm mt-1">Manage complaints, approvals, and machine status here.</p>
+    </div>
+
+    <!-- Complaints Section -->
+    <section class="mt-8 grid lg:grid-cols-3 gap-6">
+      <!-- Pending Employer Approvals -->
+      <div
+        class="lg:col-span-1 rounded-2xl p-6 bg-gradient-to-br from-slate-800 to-slate-700 shadow-lg ring-1 ring-white/10">
+        <h3 class="text-lg font-semibold text-white mb-4 border-b border-white/10 pb-2">📌 Pending Employer Approvals
+        </h3>
+        <div id="pendingList" class="space-y-3 text-white/80 text-sm"></div>
+      </div>
+
+      <!-- Complaints Table -->
+      <div
+        class="lg:col-span-2 rounded-2xl p-6 bg-gradient-to-br from-slate-800 to-slate-700 shadow-lg ring-1 ring-white/10">
+        <div class="flex items-center gap-3 mb-4">
+          <label class="text-white/80 text-sm font-medium">Filter by status:</label>
+          <select id="filterStatus"
+            class="rounded-lg px-3 py-2 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition shadow-md">
+            <option value="">All</option>
+            <option>Pending</option>
+            <option>In Progress</option>
+            <option>Closed</option>
+            <option>Rejected</option>
+          </select>
+        </div>
+        <div class="overflow-auto rounded-xl ring-1 ring-white/10 shadow-lg">
+          <table class="min-w-full text-sm text-white/80">
+            <thead class="bg-slate-900/70 text-white uppercase text-xs font-semibold">
+              <tr>
+                <th class="text-left px-4 py-3">Ref</th>
+                <th class="text-left px-4 py-3">Title / Meta</th>
+                <th class="text-left px-4 py-3">Employer</th>
+                <th class="text-left px-4 py-3">Status</th>
+                <th class="text-left px-4 py-3">Created</th>
+                <th class="text-left px-4 py-3">Image</th>
+                <th class="text-left px-4 py-3">Update</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody" class="divide-y divide-white/10"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Machines Overview -->
+    <section class="mt-8 rounded-2xl p-6 bg-gradient-to-br from-slate-800 to-slate-700 shadow-lg ring-1 ring-white/10">
+      <h3 class="text-lg font-semibold text-white mb-4 border-b border-white/10 pb-2">⚙️ Machines Overview</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="p-4 rounded-xl bg-slate-900/60 hover:bg-slate-900/80 transition shadow-lg text-center">
+          <div class="text-white/70 text-sm">Turbine</div>
+          <div class="text-green-400 font-bold text-lg">Running</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/60 hover:bg-slate-900/80 transition shadow-lg text-center">
+          <div class="text-white/70 text-sm">Boiler</div>
+          <div class="text-yellow-400 font-bold text-lg">Maintenance</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/60 hover:bg-slate-900/80 transition shadow-lg text-center">
+          <div class="text-white/70 text-sm">Generator</div>
+          <div class="text-green-400 font-bold text-lg">Running</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/60 hover:bg-slate-900/80 transition shadow-lg text-center">
+          <div class="text-white/70 text-sm">Cooling Tower</div>
+          <div class="text-green-400 font-bold text-lg">Running</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="max-w-7xl mx-auto px-6 py-8 text-white/60 text-sm text-center">
+    © NTPC • Designed for Admins
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+
+</html>
+>>>>>>> c7c55a2978a931ab5459e6400daa26e995a55093

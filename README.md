@@ -32,7 +32,7 @@ Tpc (folder)
 │    ├── employer-login.html
 │    ├── index.html
 │    ├── NTPC_Logo.svg
-├── .env.example
+├── .env
 ├── package-lock-json
 ├── package.json
 ├── server.js

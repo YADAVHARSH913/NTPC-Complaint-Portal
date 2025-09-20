@@ -13,12 +13,21 @@ const PDFDocument = require('pdfkit');
 const app = express();
 
 // ------------ DB Connection ------------
-mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/ntpc_portal')
-  .then(() => console.log('✅ MongoDB connected'))
-  .catch(err => {
-    console.error('❌ Mongo error:', err.message);
-    process.exit(1);
-  });
+// mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/ntpc_portal')
+//   .then(() => console.log('✅ MongoDB connected'))
+//   .catch(err => {
+//     console.error('❌ Mongo error:', err.message);
+//     process.exit(1);
+//   });
+
+// --------------Online DB Atlas-------------
+require("dotenv").config();
+
+mongoose.connect(process.env.MONGO_URI,)
+.then(() => console.log("✅ MongoDB Atlas Connected"))
+.catch(err => console.error("❌ Connection Error:", err));
+
+
 
 // ------------ Schemas ------------
 const employerSchema = new mongoose.Schema({

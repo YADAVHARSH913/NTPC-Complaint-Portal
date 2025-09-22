@@ -77,7 +77,7 @@ Now you Can Run the Project on Local Host <3000>...
 
 5. ----->>>> Complete working Demo <<<<<-----
    
-   ![Complete Demo](./Project%20demo.mp4)
+   ![Complete Demo](./Project%20demo.gif)
 
 
 
